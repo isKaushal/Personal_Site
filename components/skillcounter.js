@@ -4,6 +4,10 @@ import { useEffect, useState } from "react"
 export default function SkillCounters({ end = 100, label = "SKILL" }) {
     const [countUp, setCountup] = useState(0)
     const [startStop, setStartStop] = useState(false)
+
+    const radius = 45
+    const Offset = radius * 2 * Math.PI
+
     useEffect(() => {
         const intervel = setInterval(() => {
             if (startStop) {
@@ -15,11 +19,7 @@ export default function SkillCounters({ end = 100, label = "SKILL" }) {
             }
         }, [15])
         return () => clearInterval(intervel)
-    }, [() => (startStop === false ? null : countUp)])
-
-    const radius = 45
-    const Offset = radius * 2 * Math.PI
-    console.log(Offset - (countUp / 100) * Offset)
+    })
 
     return (
         <motion.div

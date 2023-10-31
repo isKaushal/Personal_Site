@@ -2,6 +2,7 @@ import Button from "./button.js"
 import Heading from "./heading"
 
 // components
+import { Brefcase } from "../components/icons.js"
 import Section from "@/components/section"
 import SkillCounters from "./skillcounter.js"
 
@@ -93,7 +94,7 @@ function CarrierInfo() {
                         className="border-2 border-clr-gray rounded-md p-8 col-span-6"
                         key={index}
                     >
-                        <h3 className="text-5xl text-clr-yellow font-semibold pr-4 relative after:content-['+'] after:text-4xl after:text-clr-yellow afte:right-0 after:-top-0 after:absolute after:font-normal ">
+                        <h3 className="text-5xl text-clr-yellow font-semibold pr-4 relative after:content-['+'] after:text-3xl after:text-clr-yellow afte:right-0 after:-top-0 after:absolute after:font-light ">
                             {data.number}
                         </h3>
                         <h6 className="text-white w-40 text-[20px] relative pl-16 before:content-[''] before:w-10 before:h-[1px] before:bg-gray-400 before:rounded-full before:absolute before:top-4 before:left-0">
@@ -140,10 +141,10 @@ function Skills() {
             name: "EJs",
             percentage: 10,
         },
-        {
-            name: "Redux",
-            percentage: 5,
-        },
+        // {
+        //     name: "Redux",
+        //     percentage: 5,
+        // },
     ]
 
     return (
@@ -157,14 +158,72 @@ function Skills() {
     )
 }
 
+function Experince() {
+    const data = [
+        {
+            year: "2015-PRESENT",
+            position: "Frontend Developer",
+            where: "Test n Track",
+            paragraph:
+                "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+        },
+        {
+            year: "2015",
+            position: "Frontend Developer",
+            where: "Test n Track",
+            paragraph:
+                "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+        },
+        {
+            year: "2015",
+            position: "Frontend Developer",
+            where: "Test n Track",
+            paragraph:
+                "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+        },
+    ]
+
+    return (
+        <>
+            {data.map((data) => {
+                return (
+                    <div className="p-8 col-span-6 relative before:content-[''] before:w-[1px] before:h-[80%] before:bg-gray-700 before:absolute before:left-[3.7rem]">
+                        <div className="w-full flex ">
+                            <div className="rounded-full w-10 h-10 flex justify-center items-center text-white bg-clr-yellow text-lg mx-2 z-[1]">
+                                <Brefcase />
+                            </div>
+                            <div className="flex items-center mx-2">
+                                <h2 className="text-sm  text-gray-400 p-1 px-4 rounded-full bg-clr-gray ">
+                                    {data.year}
+                                </h2>
+                            </div>
+                        </div>
+                        <div className="pl-16 ">
+                            <div className="text-white flex items-center text-xl mb-1">
+                                <h3 className="">{data.position}</h3>
+                                <span className="bg-white w-4 h-0.5 mx-2"></span>
+                                <span className="text-gray-400">{data.where}</span>
+                            </div>
+                            <p className="text-gray-400 text-sm ">
+                                {data.paragraph}
+                            </p>
+                        </div>
+                    </div>
+
+                )
+            })}
+        </>
+    )
+}
+
 export default function About() {
     return (
         <>
-            <Section>
+            <Section style={{ marginBottom: "0rem" }}>
                 <Heading white="about" yellow="me" blur="resume" />
-                <div className="pt-28 flex">
+                <div className="py-14 flex">
                     <div className="w-2/4 py-4 ">
-                        <h2 className="text-white text-3xl mb-6 font-semibold ">
+                        <h2 className="text-white text-3xl m-6 font-semibold ">
                             PERSONAL INFOS
                         </h2>
                         <Infos />
@@ -177,13 +236,37 @@ export default function About() {
                     </div>
                 </div>
             </Section>
-            <Section>
-                <div className="py-28">
+
+            <Section style={{ margin: "0rem", padding: "0rem" }}>
+                <div className="flex justify-center">
+                    <hr className="bg-clr-gray h-1 w-3/4 opacity-30 " />
+                </div>
+            </Section>
+
+            <Section style={{ margin: "0rem" }}>
+                <div className="pt-14">
                     <h2 className="text-white text-5xl mb-6 font-semibold text-center ">
                         MY SKILLS
                     </h2>
-                    <div className="w-full grid grid-cols-12 py-20">
+                    <div className="w-full grid grid-cols-12 pb-20">
                         <Skills />
+                    </div>
+                </div>
+            </Section>
+
+            <Section style={{ margin: "0rem", padding: "0rem" }}>
+                <div className="flex justify-center">
+                    <hr className="bg-clr-gray h-1 w-3/4 opacity-30 " />
+                </div>
+            </Section>
+
+            <Section style={{ marginTop: "0rem" }}>
+                <div className="pt-14">
+                    <h2 className="text-white text-5xl mb-6 font-semibold text-center ">
+                        EXPERIENCE & EDUCATION
+                    </h2>
+                    <div className="w-full grid grid-cols-12 pb-20">
+                        <Experince />
                     </div>
                 </div>
             </Section>
