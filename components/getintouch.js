@@ -51,7 +51,7 @@ export default function GetInTouch() {
                                         mail me
                                     </span>{" "}
                                     <br />
-                                    Kaushalkumarsoni69@gmail.com
+                                    kaushalkumarsoni69@gmail.com
                                 </h6>
                             </div>
                             <div className="flex items-center py-4">
@@ -108,14 +108,14 @@ export default function GetInTouch() {
                         <form>
                             <div className="flex w-full">
                                 <input
-                                    className="my-4 mr-2  p-3 px-4 w-full bg-clr-gray text-gray-400 rounded-full"
+                                    className="my-4 mr-2  p-3 px-4 w-full bg-clr-gray text-gray-400 outline-none text-xs rounded-full"
                                     placeholder="Your Name"
                                     type="text"
                                     name=""
                                     id=""
                                 />
                                 <input
-                                    className="my-4 ml-2  p-3 px-4 w-full bg-clr-gray text-gray-400 rounded-full"
+                                    className="my-4 ml-2  p-3 px-4 w-full bg-clr-gray text-gray-400 outline-none text-xs rounded-full"
                                     placeholder="Your Email"
                                     type="email"
                                     name=""
@@ -124,14 +124,14 @@ export default function GetInTouch() {
                             </div>
                             <div>
                                 <input
-                                    className="my-4 p-3 px-4 bg-clr-gray text-gray-400 rounded-full w-full"
+                                    className="my-4 p-3 px-4 bg-clr-gray text-gray-400 outline-none text-xs rounded-full w-full"
                                     placeholder="Your Subject"
                                     type="text"
                                     name=""
                                     id=""
                                 />
                                 <textarea
-                                    className="my-4 p-3 px-4 bg-clr-gray text-gray-400 rounded-3xl w-full"
+                                    className="my-4 p-5  bg-clr-gray text-gray-400 outline-none text-xs rounded-3xl w-full"
                                     placeholder="Your Query"
                                     name=""
                                     id=""

@@ -1,26 +1,13 @@
 import { motion } from "framer-motion"
 
-export function PortfolioAnimation({ children, index, style, className, id }) {
+export function PreloderAnimation() {
+    const y = "100%"
     return (
         <motion.div
-            className={className}
-            style={style}
-            key={id}
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{
-                delay: 0.3 * id,
-                duration: 0.3,
-                type: "tween",
-                opacity: { duration: 0.7 },
-            }}
-        >
-            {children}
-        </motion.div>
+            className="w-screen h-screen bg-clr-gray transition duration-1000 ease-[cubic-bezier(0.49, 0, 0.2, 1)] absolute z-[2]"
+            initial={{ y: 0 }}
+            animate={{ y: y }}
+            transition={{ delay: "0.5" }}
+        ></motion.div>
     )
-}
-
-export function PreloderAnimation() {
-    return null
 }

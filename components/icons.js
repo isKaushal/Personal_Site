@@ -8,7 +8,7 @@ import {
     FaXTwitter,
 } from "react-icons/fa6"
 import { HiMailOpen } from "react-icons/hi"
-import { FaPhoneSquareAlt } from "react-icons/fa"
+import { FaPhoneSquareAlt, FaHome, FaUser } from "react-icons/fa"
 
 export {
     FaArrowRightLong as ArrowRight,
@@ -20,4 +20,4 @@ export {
     FaXTwitter as Twitter,
 }
 export { HiMailOpen as Mail }
-export { FaPhoneSquareAlt as Phone }
+export { FaPhoneSquareAlt as Phone, FaHome as Home, FaUser as User }

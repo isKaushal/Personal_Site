@@ -110,39 +110,37 @@ export default function Portfolio() {
                     </h3>
                 </div>
                 <div className="grid grid-cols-12 w-full  gap-8 transition-all duration-1000">
-                    <AnimatePresence>
-                        {data
-                            .filter((data) => data.catagory !== isFilter)
-                            .map((data, index) => {
-                                return (
-                                    <motion.div
-                                        key={data.id}
-                                        initial={{ x: -100, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            delay: 0.1 * index,
-                                            duration: 0.3,
-                                            type: "tween",
-                                            opacity: { duration: 0.7 },
+                    {data
+                        .filter((data) => data.catagory !== isFilter)
+                        .map((data, index) => {
+                            return (
+                                <motion.div
+                                    key={data.id}
+                                    initial={{ x: -100, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        delay: 0.1 * index,
+                                        duration: 0.3,
+                                        type: "tween",
+                                        opacity: { duration: 0.7 },
+                                    }}
+                                    className="span_wrap col-span-4 rounded-lg w-96 h-56 overflow-hidden relative flex justify-center items-center before:content-[''] before:absolute before:w-full before:h-full hover:before:bg-clr-yellow before:transition-all before:duration-[600ms]"
+                                >
+                                    <img
+                                        src={data.img}
+                                        style={{
+                                            aspectRatio: "1/1",
+                                            height: "100%",
+                                            width: "100%",
                                         }}
-                                        className="span_wrap col-span-4 rounded-lg w-96 h-56 overflow-hidden relative flex justify-center items-center before:content-[''] before:absolute before:w-full before:h-full hover:before:bg-clr-yellow before:transition-all before:duration-[600ms]"
-                                    >
-                                        <img
-                                            src={data.img}
-                                            style={{
-                                                aspectRatio: "1/1",
-                                                height: "100%",
-                                                width: "100%",
-                                            }}
-                                        />
-                                        <span className="span">
-                                            {data.wesitename}
-                                        </span>
-                                    </motion.div>
-                                )
-                            })}
-                    </AnimatePresence>
+                                    />
+                                    <span className="span">
+                                        {data.wesitename}
+                                    </span>
+                                </motion.div>
+                            )
+                        })}
                 </div>
             </Section>
         </PortfolioWrap>
