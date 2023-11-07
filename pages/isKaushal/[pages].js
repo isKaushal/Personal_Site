@@ -9,7 +9,7 @@ import NotFound from "@/components/notfound.js"
 import Layout from "@/components/layout.js"
 
 // animations
-import AnimationWrap from "../../components/animations.js"
+import { PageEnterAnimation } from "../../components/animations.js"
 
 function PageSwitcher() {
     const router = useRouter()
@@ -29,7 +29,9 @@ function PageSwitcher() {
 export default function AllPages() {
     return (
         <Layout>
-            <PageSwitcher />
+            <PageEnterAnimation>
+                <PageSwitcher />
+            </PageEnterAnimation>
         </Layout>
     )
 }

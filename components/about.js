@@ -1,10 +1,14 @@
 import Button from "./button.js"
 import Heading from "./heading"
+import Image from "next/image"
 
 // components
 import { Brefcase } from "../components/icons.js"
 import Section from "@/components/section"
 import SkillCounters from "./skillcounter.js"
+
+// images
+import ProfileImg from "../public/profile-img.jpg"
 
 function Infos() {
     const data = [
@@ -54,7 +58,10 @@ function Infos() {
         <div className="w-full grid grid-cols-12">
             {data.map((data, index) => {
                 return (
-                    <div className="col-span-6 my-3" key={index}>
+                    <div
+                        className=" col-span-12 lg:col-span-6 my-3"
+                        key={index}
+                    >
                         <h6 className="text-gray-400 text-sm">
                             {data.label}:{" "}
                             <span className="text-white ">{data.value}</span>
@@ -87,11 +94,11 @@ function CarrierInfo() {
     ]
 
     return (
-        <div className="w-full grid grid-cols-12 gap-8">
+        <div className="w-full grid grid-cols-12 gap-y-8  sm:gap-8">
             {data.map((data, index) => {
                 return (
                     <div
-                        className="border-2 border-clr-gray rounded-md p-8 col-span-6"
+                        className="border-2 border-clr-gray rounded-md p-8 col-span-12 sm:col-span-6"
                         key={index}
                     >
                         <h3 className="text-5xl text-clr-yellow font-semibold pr-4 relative after:content-['+'] after:text-3xl after:text-clr-yellow afte:right-0 after:-top-0 after:absolute after:font-light ">
@@ -150,7 +157,7 @@ function Skills() {
     return (
         <>
             {data.map((data) => (
-                <div className="col-span-3 flex justify-center items-center">
+                <div className=" col-span-6 md:col-span-4 lg:col-span-3 flex justify-center items-center">
                     <SkillCounters end={data.percentage} label={data.name} />
                 </div>
             ))}
@@ -187,7 +194,7 @@ function Experince() {
         <>
             {data.map((data) => {
                 return (
-                    <div className="p-8 col-span-6 relative before:content-[''] before:w-[1px] before:h-[80%] before:bg-gray-700 before:absolute before:left-[3.7rem]">
+                    <div className="p-8 col-span-12 lg:col-span-6 relative before:content-[''] before:w-[1px] before:h-[80%] before:bg-gray-700 before:absolute before:left-[3.7rem]">
                         <div className="w-full flex ">
                             <div className="rounded-full w-10 h-10 flex justify-center items-center text-white bg-clr-yellow text-lg mx-2 z-[1]">
                                 <Brefcase />
@@ -199,17 +206,18 @@ function Experince() {
                             </div>
                         </div>
                         <div className="pl-16 ">
-                            <div className="text-white flex items-center text-xl mb-1">
+                            <div className="text-white flex items-center text-sm md:text-xl mb-1">
                                 <h3 className="">{data.position}</h3>
                                 <span className="bg-white w-4 h-0.5 mx-2"></span>
-                                <span className="text-gray-400">{data.where}</span>
+                                <span className="text-gray-400">
+                                    {data.where}
+                                </span>
                             </div>
                             <p className="text-gray-400 text-sm ">
                                 {data.paragraph}
                             </p>
                         </div>
                     </div>
-
                 )
             })}
         </>
@@ -221,17 +229,31 @@ export default function About() {
         <>
             <Section style={{ marginBottom: "0rem" }}>
                 <Heading white="about" yellow="me" blur="resume" />
-                <div className="py-14 flex">
-                    <div className="w-2/4 py-4 ">
-                        <h2 className="text-white text-3xl m-6 font-semibold ">
+                <div className="py-14  lg:flex  ">
+                    <div className="w-full lg:w-2/4 py-4 ">
+                        <h2 className="text-white text-3xl md:m-6 font-semibold ">
                             PERSONAL INFOS
                         </h2>
+                        <div className="flex justify-center py-8 lg:hidden">
+                            <Image
+                                src={ProfileImg}
+                                width={200}
+                                height={200}
+                                quality={100}
+                                alt="Profile Image"
+                                style={{
+                                    borderRadius: "100%",
+                                    height: "100%",
+                                    aspectRatio: "1/1",
+                                }}
+                            />
+                        </div>
                         <Infos />
                         <div className="my-8">
                             <Button label="Download CV" />
                         </div>
                     </div>
-                    <div className="w-2/4 py-4">
+                    <div className="w-full lg:w-2/4 py-4">
                         <CarrierInfo />
                     </div>
                 </div>
@@ -262,7 +284,7 @@ export default function About() {
 
             <Section style={{ marginTop: "0rem" }}>
                 <div className="pt-14">
-                    <h2 className="text-white text-5xl mb-6 font-semibold text-center ">
+                    <h2 className="text-white text-3xl md:text-5xl mb-6 font-semibold text-center ">
                         EXPERIENCE & EDUCATION
                     </h2>
                     <div className="w-full grid grid-cols-12 pb-20">

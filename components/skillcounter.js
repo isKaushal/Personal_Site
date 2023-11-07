@@ -30,7 +30,7 @@ export default function SkillCounters({ end = 100, label = "SKILL" }) {
             <div className="w-[8rem] h-[8rem] flex justify-center items-center relative">
                 <motion.svg
                     fill="none"
-                    stroke="#ffb400"
+                    stroke="var(--color-yellow)"
                     strokeWidth="6"
                     viewBox="0 0 100 100"
                     strokeLinecap="round"
@@ -43,7 +43,7 @@ export default function SkillCounters({ end = 100, label = "SKILL" }) {
                 </motion.svg>
                 <motion.svg
                     fill="none"
-                    stroke="#2b2a2a"
+                    stroke="var(--color-gray)"
                     strokeWidth="6"
                     viewBox="0 0 100 100"
                     strokeLinecap="round"

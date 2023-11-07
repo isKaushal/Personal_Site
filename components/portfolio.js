@@ -4,7 +4,7 @@ import Image from "next/image"
 // components
 import Heading from "../components/heading.js"
 import Section from "./section.js"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 const PortfolioWrap = styled.div`
@@ -26,6 +26,15 @@ const PortfolioWrap = styled.div`
 
 export default function Portfolio() {
     const [isFilter, setIsFilter] = useState("")
+    const [isStart, setIsStart] = useState(false)
+
+    useEffect(() => {
+        const intervel = setTimeout(() => {
+            setIsStart(true)
+        }, [900])
+
+        return () => clearInterval(intervel)
+    })
 
     const data = [
         {
@@ -80,15 +89,15 @@ export default function Portfolio() {
 
             <Section style={{ marginTop: "0rem" }}>
                 <div className="flex justify-center py-8 text-white w-full text-xl">
-                    <h3
+                    <button
                         onClick={() => setIsFilter("")}
                         className={`${
                             isFilter === "" ? "text-clr-yellow mx-2" : "mx-2"
                         } cursor-pointer`}
                     >
                         All
-                    </h3>
-                    <h3
+                    </button>
+                    <button
                         onClick={() => setIsFilter("webapp")}
                         className={`${
                             isFilter === "webapp"
@@ -97,8 +106,8 @@ export default function Portfolio() {
                         } cursor-pointer`}
                     >
                         Web Apps
-                    </h3>
-                    <h3
+                    </button>
+                    <button
                         onClick={() => setIsFilter("website")}
                         className={`${
                             isFilter === "website"
@@ -107,9 +116,9 @@ export default function Portfolio() {
                         } cursor-pointer`}
                     >
                         Web Sites
-                    </h3>
+                    </button>
                 </div>
-                <div className="grid grid-cols-12 w-full  gap-8 transition-all duration-1000">
+                <div className="grid grid-cols-12 w-full gap-y-8 sm:gap-8 transition-all duration-1000">
                     {data
                         .filter((data) => data.catagory !== isFilter)
                         .map((data, index) => {
@@ -117,7 +126,9 @@ export default function Portfolio() {
                                 <motion.div
                                     key={data.id}
                                     initial={{ x: -100, opacity: 0 }}
-                                    whileInView={{ x: 0, opacity: 1 }}
+                                    whileInView={
+                                        isStart && { x: 0, opacity: 1 }
+                                    }
                                     viewport={{ once: true }}
                                     transition={{
                                         delay: 0.1 * index,
@@ -125,7 +136,7 @@ export default function Portfolio() {
                                         type: "tween",
                                         opacity: { duration: 0.7 },
                                     }}
-                                    className="span_wrap col-span-4 rounded-lg w-96 h-56 overflow-hidden relative flex justify-center items-center before:content-[''] before:absolute before:w-full before:h-full hover:before:bg-clr-yellow before:transition-all before:duration-[600ms]"
+                                    className="span_wrap col-span-12  sm:col-span-6 lg:col-span-4 rounded-lg h-56 overflow-hidden relative flex justify-center items-center before:content-[''] before:absolute before:w-full before:h-full hover:before:bg-clr-yellow before:transition-all before:duration-[600ms]"
                                 >
                                     <img
                                         src={data.img}

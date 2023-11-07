@@ -20,8 +20,8 @@ export default function GetInTouch() {
             </Section>
 
             <Section>
-                <div className="flex">
-                    <div className="w-[40%] px-4">
+                <div className=" lg:flex">
+                    <div className="w-full lg:w-[40%] px-4">
                         <div className="text-white ">
                             <h2 className="text-3xl font-semibold mb-3">
                                 DON'T BE SHY !
@@ -104,7 +104,7 @@ export default function GetInTouch() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[60%] px-4">
+                    <div className="w-full lg:w-[60%] px-4">
                         <form>
                             <div className="flex w-full">
                                 <input

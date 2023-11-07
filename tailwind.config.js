@@ -10,9 +10,11 @@ module.exports = {
             colors: {
                 "clr-black": "#111",
                 "clr-gray": "#2b2a2a",
-                "clr-yellow": "#ffb400",
-                // "clr-yellow": "#ee4b2b",
-                // "clr-yellow": "#ff7f11",// this my faverate
+                "clr-gray-lite": "#3A3A3A",
+                "clr-yellow": "#ffb400", // default
+                // "clr-yellow": "#ee4b2b", // red
+                // "clr-yellow": "#fca404",
+                // "clr-yellow": "#ff4200",
             },
         },
     },
