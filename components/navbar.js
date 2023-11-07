@@ -22,7 +22,7 @@ function ActiveLink({ children, href, className }) {
 
 function MobileNavBar({ list, isHover, setIsHover }) {
     return (
-        <div className="absolute w-screen bottom-0 flex justify-around items-center z-[4] bg-clr-gray">
+        <div className="fixed w-screen left-0 top-auto bottom-0 flex justify-around items-center z-[4] bg-clr-gray">
             {list.map((data, index) => {
                 return (
                     <ActiveLink
