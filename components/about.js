@@ -59,7 +59,7 @@ function Infos() {
             {data.map((data, index) => {
                 return (
                     <div
-                        className=" col-span-12 lg:col-span-6 my-3"
+                        className=" col-span-12 sm:col-span-6 my-2"
                         key={index}
                     >
                         <h6 className="text-gray-400 text-sm">
@@ -94,7 +94,7 @@ function CarrierInfo() {
     ]
 
     return (
-        <div className="w-full grid grid-cols-12 gap-y-8  sm:gap-8">
+        <div className="w-full grid grid-cols-12 gap-y-8 sm:gap-8">
             {data.map((data, index) => {
                 return (
                     <div
@@ -194,9 +194,9 @@ function Experince() {
         <>
             {data.map((data) => {
                 return (
-                    <div className="p-8 col-span-12 lg:col-span-6 relative before:content-[''] before:w-[1px] before:h-[80%] before:bg-gray-700 before:absolute before:left-[3.7rem]">
-                        <div className="w-full flex ">
-                            <div className="rounded-full w-10 h-10 flex justify-center items-center text-white bg-clr-yellow text-lg mx-2 z-[1]">
+                    <div className="py-8 sm:p-8 col-span-12 lg:col-span-6 relative sm:before:content-[''] sm:before:w-[1px] sm:before:h-[80%] sm:before:bg-gray-700 sm:before:absolute sm:before:left-[3.7rem]">
+                        <div className="w-full flex my-2  ">
+                            <div className="rounded-full w-10 h-10 flex justify-center items-center text-white bg-clr-yellow text-lg sm:mx-2 z-[1]">
                                 <Brefcase />
                             </div>
                             <div className="flex items-center mx-2">
@@ -205,15 +205,15 @@ function Experince() {
                                 </h2>
                             </div>
                         </div>
-                        <div className="pl-16 ">
-                            <div className="text-white flex items-center text-sm md:text-xl mb-1">
+                        <div className=" pl-4 sm:pl-16 ">
+                            <div className="text-white sm:flex items-center text-base sm:text-xl mb-1">
                                 <h3 className="">{data.position}</h3>
-                                <span className="bg-white w-4 h-0.5 mx-2"></span>
+                                <span className="bg-white w-4 h-0.5 mx-2 hidden sm:block"></span>
                                 <span className="text-gray-400">
                                     {data.where}
                                 </span>
                             </div>
-                            <p className="text-gray-400 text-sm ">
+                            <p className="text-gray-400 text-xs ">
                                 {data.paragraph}
                             </p>
                         </div>

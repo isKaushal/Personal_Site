@@ -78,13 +78,13 @@ export default function Home() {
                                             }}
                                         />
                                     </div>
-                                    <h1 className="text-4xl text-center  text-clr-yellow font-semibold font-family  relative font-family leading-[3.5rem] tracking-wide">
+                                    <h1 className="text-3xl text-center  text-clr-yellow font-semibold font-family  relative font-family leading-[2.5rem] tracking-wide">
                                         I'M KAUSHAL SONI <br />{" "}
                                         <span className="text-white">
                                             WEB DEVELOPER
                                         </span>
                                     </h1>
-                                    <p className="text-white  py-6 leading-7 tracking-wide text-center">
+                                    <p className="text-sm text-white py-6 leading-6 tracking-wide text-center">
                                         Lorem ipsum dolor, sit amet consectetur
                                         adipisicing elit. Saepe sint aliquam
                                         veniam iusto ab, nihil iure facilis
