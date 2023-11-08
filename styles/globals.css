@@ -32,5 +32,6 @@
 }
 
 body {
+    cursor: none;
     background-color: var(--color-black);
 }

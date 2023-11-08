@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useMedia } from "react-use"
@@ -6,7 +6,7 @@ import { useMedia } from "react-use"
 // componts
 import { Home, User, Brefcase, Mail } from "./icons.js"
 
-function ActiveLink({ children, href, className }) {
+function ActiveLink({ children, href, className, setIsActive }) {
     const router = useRouter()
     const handleClick = (e) => {
         e.preventDefault()
@@ -20,7 +20,7 @@ function ActiveLink({ children, href, className }) {
     )
 }
 
-function MobileNavBar({ list, isHover, setIsHover }) {
+function MobileNavBar({ list, setIsHover, router }) {
     return (
         <div className="fixed w-screen left-0 top-auto bottom-0 flex justify-around items-center z-[4] bg-clr-gray">
             {list.map((data, index) => {
@@ -33,7 +33,11 @@ function MobileNavBar({ list, isHover, setIsHover }) {
                         <motion.div
                             onMouseEnter={() => setIsHover(index)}
                             onMouseLeave={() => setIsHover(false)}
-                            className="button w-12 h-12 flex justify-center items-center transition-all duration-300 bg-clr-gray-lite hover:bg-clr-yellow rounded-full text-white text-xl relative cursor-pointer"
+                            className={
+                                router === data.pagename
+                                    ? "button w-12 h-12 flex justify-center items-center transition-all duration-300 bg-clr-yellow rounded-full text-white text-xl relative cursor-pointer"
+                                    : "button w-12 h-12 flex justify-center items-center transition-all duration-300 bg-clr-gray-lite hover:bg-clr-yellow rounded-full text-white text-xl relative cursor-pointer"
+                            }
                         >
                             {data.icon}
                         </motion.div>
@@ -46,6 +50,7 @@ function MobileNavBar({ list, isHover, setIsHover }) {
 
 export default function NavBar() {
     const [isHover, setIsHover] = useState("")
+    const router = useRouter()
     const isWide = useMedia("(min-width:1024px)", true)
 
     const pages = [
@@ -82,7 +87,11 @@ export default function NavBar() {
                                     <motion.div
                                         onMouseEnter={() => setIsHover(index)}
                                         onMouseLeave={() => setIsHover(false)}
-                                        className="button w-14 h-14 flex justify-center items-center transition-all duration-300 bg-clr-gray hover:bg-clr-yellow rounded-full text-white text-xl z-[4] relative cursor-pointer"
+                                        className={
+                                            router.query.pages === data.pagename
+                                                ? "button w-14 h-14 flex justify-center items-center transition-all duration-300 bg-clr-yellow rounded-full text-white text-xl z-[4] relative cursor-pointer"
+                                                : "button w-14 h-14 flex justify-center items-center transition-all duration-300 bg-clr-gray hover:bg-clr-yellow rounded-full text-white text-xl z-[4] relative cursor-pointer"
+                                        }
                                     >
                                         {data.icon}
                                     </motion.div>
@@ -103,7 +112,7 @@ export default function NavBar() {
             ) : (
                 <MobileNavBar
                     list={pages}
-                    isHover={isHover}
+                    router={router.query.pages}
                     setIsHover={setIsHover}
                 />
             )}

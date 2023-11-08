@@ -156,8 +156,11 @@ function Skills() {
 
     return (
         <>
-            {data.map((data) => (
-                <div className=" col-span-6 md:col-span-4 lg:col-span-3 flex justify-center items-center">
+            {data.map((data, index) => (
+                <div
+                    key={index}
+                    className=" col-span-6 md:col-span-4 lg:col-span-3 flex justify-center items-center"
+                >
                     <SkillCounters end={data.percentage} label={data.name} />
                 </div>
             ))}
@@ -192,9 +195,12 @@ function Experince() {
 
     return (
         <>
-            {data.map((data) => {
+            {data.map((data, index) => {
                 return (
-                    <div className="py-8 sm:p-8 col-span-12 lg:col-span-6 relative sm:before:content-[''] sm:before:w-[1px] sm:before:h-[80%] sm:before:bg-gray-700 sm:before:absolute sm:before:left-[3.7rem]">
+                    <div
+                        key={index}
+                        className="py-8 sm:p-8 col-span-12 lg:col-span-6 relative sm:before:content-[''] sm:before:w-[1px] sm:before:h-[80%] sm:before:bg-gray-700 sm:before:absolute sm:before:left-[3.7rem]"
+                    >
                         <div className="w-full flex my-2  ">
                             <div className="rounded-full w-10 h-10 flex justify-center items-center text-white bg-clr-yellow text-lg sm:mx-2 z-[1]">
                                 <Brefcase />
